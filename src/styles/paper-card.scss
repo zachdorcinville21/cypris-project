@@ -1,0 +1,34 @@
+@use './theme' as *;
+
+.paper-card {
+  border: 2px solid $grey_100;
+  background-color: $main_100;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.paper-card:hover {
+  cursor: pointer;
+}
+
+.paper-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.paper-card-thumbnail {
+  min-width: 80px;
+  min-height: 105px;
+}
+
+.paper-card-title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.paper-card-author, .paper-card-date {
+  color: $grey_100;
+}

@@ -10,3 +10,13 @@
   padding: 4rem;
   background-color: $main_100;
 }
+
+.spinner {
+  color: $blue_100;
+}
+
+.column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
