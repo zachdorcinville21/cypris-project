@@ -1,11 +1,10 @@
 import { usePapers } from "../../hooks/usePapers";
 import { PaperCard } from "./components/PaperCard";
-import { motion } from "framer-motion";
-import { ResultsFilters } from "./components/ResultsFilters";
 import { useState } from "react";
 import { MoonLoader } from "react-spinners";
 
 import "../../styles/results.scss";
+import { ResultsFilters } from "./components/ResultsFilters";
 
 export function Results() {
   const [limit, setLimit] = useState(10);
@@ -14,12 +13,8 @@ export function Results() {
 
   return (
     <div id="results-container">
-      {/* <ResultsFilters setLimit={setLimit} /> */}
-      <motion.div
-        id="results-grid"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
+      <ResultsFilters setLimit={setLimit} />
+      <div id="results-grid">
         {isLoading ? (
           <MoonLoader color="#0039a6" size={50} />
         ) : (
@@ -29,7 +24,7 @@ export function Results() {
             ))}
           </>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 }

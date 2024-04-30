@@ -16,3 +16,11 @@
   justify-content: center;
   justify-items: center;
 }
+
+#results-filter-input {
+  max-width: 200px;
+  background-color: transparent;
+  border: 1px solid $grey_100;
+  border-radius: 6px;
+  height: 20px;
+}

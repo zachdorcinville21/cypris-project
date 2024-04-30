@@ -1,5 +1,6 @@
 import { Paper } from "../../../types";
 import { format } from "date-fns";
+import { motion } from "framer-motion";
 
 import "../../../styles/paper-card.scss";
 
@@ -12,7 +13,12 @@ export function PaperCard({ paper }: PaperCardProps) {
     window.open(paper.readerLink, "_blank");
   };
   return (
-    <div className="paper-card" onClick={onPaperClick}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="paper-card"
+      onClick={onPaperClick}
+    >
       <div className="paper-card-body">
         <div className="column" style={{ alignItems: "start", gap: "0.5rem" }}>
           <img
@@ -33,6 +39,6 @@ export function PaperCard({ paper }: PaperCardProps) {
           {format(new Date(paper.publishedDate), "MMM d, yyyy")}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
