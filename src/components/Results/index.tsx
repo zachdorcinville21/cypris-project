@@ -1,6 +1,5 @@
-import { usePapers } from "../../hooks/usePapers";
 import { PaperCard } from "./components/PaperCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MoonLoader } from "react-spinners";
 
 import "../../styles/results.scss";
@@ -14,9 +13,6 @@ export function Results() {
   const [isLoading, setIsLoading] = useState(false);
   const [papers, setPapers] = useState<Paper[]>([]);
 
-  // const { data: papers, isLoading } = usePapers({ limit, query: searchQuery });
-  console.log("🚀 ~ Results ~ papers:", papers);
-
   const handleSearch = async () => {
     setIsLoading(true);
     const result = await fetchPapers(limit, searchQuery);
@@ -25,6 +21,10 @@ export function Results() {
     }
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    handleSearch();
+  }, []);
 
   return (
     <div id="results-container">
