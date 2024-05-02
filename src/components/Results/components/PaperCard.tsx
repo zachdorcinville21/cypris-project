@@ -12,6 +12,7 @@ export function PaperCard({ paper }: PaperCardProps) {
   const onPaperClick = () => {
     window.open(paper.readerLink, "_blank");
   };
+  console.log("date: ", paper.publishedDate);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -36,7 +37,9 @@ export function PaperCard({ paper }: PaperCardProps) {
           </div>
         </div>
         <p className="paper-card-date">
-          {format(new Date(paper.publishedDate), "MMM d, yyyy")}
+          {paper.publishedDate
+            ? format(new Date(paper.publishedDate), "MMM d, yyyy")
+            : null}
         </p>
       </div>
     </motion.div>

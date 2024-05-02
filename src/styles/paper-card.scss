@@ -1,6 +1,7 @@
 @use './theme' as *;
 
 .paper-card {
+  width: $paper_card_size;
   border: 2px solid $grey_100;
   background-color: $main_100;
   border-radius: 12px;

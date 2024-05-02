@@ -1,5 +1,9 @@
 @use './theme' as *;
 
+* {
+  box-sizing: border-box;
+}
+
 .app-container {
   display: flex;
   min-height: 100vh;
@@ -7,8 +11,9 @@
   align-items: center;
   flex-direction: column;
   gap: 6rem;
-  padding: 4rem;
+  padding: 2rem;
   background-color: $main_100;
+  width: 100%;
 }
 
 .spinner {
@@ -19,4 +24,11 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.input-label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
 }

@@ -1,0 +1,30 @@
+@use './theme' as *;
+
+.rule-fields {
+  display: none;
+}
+
+.ruleGroup-combinators, .ruleGroup-header, .ruleGroup, .rule-operators, .rule-value {
+  background-color: transparent;
+}
+
+.queryBuilder {
+  width: 300px;
+}
+
+.ruleGroup-addRule, .ruleGroup-addGroup {
+  background-color: $blue_100;
+  border: none;
+  border-radius: 4px;
+  transition: ease 0.2s;
+  &:hover {
+    background-color: $blue_200;
+    cursor: pointer;
+  }
+}
+
+.rule-value {
+  border: 1px solid $grey_100;
+  border-radius: 6px;
+}
+
