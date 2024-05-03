@@ -1,10 +1,9 @@
-import { SetStateAction } from "react";
 import "../../../../styles/results.scss";
 import { BooleanSearch } from "./BooleanSearch";
 
 interface ResultsFiltersProps {
   setLimit: (limit: number) => void;
-  setSearchQuery: React.Dispatch<SetStateAction<string>>;
+  setSearchQuery: (query: string) => void;
 }
 
 export function ResultsFilters({

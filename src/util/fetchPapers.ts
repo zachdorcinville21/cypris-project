@@ -23,6 +23,7 @@ export async function fetchPapers(
       )?.url;
       return {
         title: result.title,
+        abstract: result.abstract ?? '',
         authors: result.authors,
         publishedDate: result.publishedDate,
         thumbnail,

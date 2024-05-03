@@ -12,7 +12,6 @@ export function PaperCard({ paper }: PaperCardProps) {
   const onPaperClick = () => {
     window.open(paper.readerLink, "_blank");
   };
-  console.log("date: ", paper.publishedDate);
   return (
     <motion.div
       initial={{ opacity: 0 }}

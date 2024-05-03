@@ -1,13 +1,5 @@
 @use './theme' as *;
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  scrollbar-gutter: stable;
-}
-
 .app-container {
   display: flex;
   min-height: 100vh;
@@ -18,7 +10,6 @@ body {
   padding: 2rem;
   background-color: $main_100;
   width: 100%;
-  padding-left: calc(100vw - 100%);
 }
 
 .spinner {
@@ -36,4 +27,34 @@ body {
   flex-direction: column;
   align-items: start;
   width: 100%;
+}
+
+.react-tabs {
+  width: 100%;
+  // border: 1px solid green;
+  height: 100% !important;
+}
+
+.react-tabs__tab-list {
+  border-bottom: none !important;
+  display: flex;
+  justify-content: center;
+}
+
+.react-tabs__tab {
+  background-color: transparent;
+  &:focus {
+    &::after {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.tab-selected {
+  border-bottom: 2px solid $blue_100 !important;
+}
+
+.react-tabs__tab-panel {
+  padding-top: 4rem;
+  // border: 1px solid firebrick;
 }

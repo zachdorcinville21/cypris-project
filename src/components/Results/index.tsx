@@ -5,13 +5,14 @@ import { MoonLoader } from "react-spinners";
 import "../../styles/results.scss";
 import { ResultsFilters } from "./components/ResultsFilters";
 import { fetchPapers } from "../../util/fetchPapers";
-import { Paper } from "../../types";
+import { usePapersStore } from "../../stores/usePapersStore";
+import { useKeywordStore } from "../../stores/useKeywordStore";
 
 export function Results() {
   const [limit, setLimit] = useState(10);
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
-  const [papers, setPapers] = useState<Paper[]>([]);
+  const { papers, setPapers } = usePapersStore();
+  const { searchQuery, setSearchQuery } = useKeywordStore();
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -28,9 +29,11 @@ export function Results() {
 
   return (
     <div id="results-container">
-      <section className="column" id='search-section' style={{gap: '1rem'}}>
+      <section className="column" id="search-section" style={{ gap: "1rem" }}>
         <ResultsFilters setLimit={setLimit} setSearchQuery={setSearchQuery} />
-        <button id='search-btn' onClick={handleSearch}>Search</button>
+        <button id="search-btn" onClick={handleSearch}>
+          Search
+        </button>
       </section>
       <section id="results-grid">
         {isLoading ? (

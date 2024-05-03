@@ -10,7 +10,7 @@ import "react-querybuilder/dist/query-builder.css";
 import "../../../../styles/boolean-search.scss";
 
 interface BooleanSearchProps {
-  setSearchQuery: React.Dispatch<SetStateAction<string>>;
+  setSearchQuery: (query: string) => void;
 }
 
 const fields: Field[] = [{ name: "paper", label: "paper" }];
