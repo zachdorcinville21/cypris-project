@@ -46,11 +46,16 @@ export function PaperCard({ paper }: PaperCardProps) {
             </p>
           </div>
         </div>
-        <p className="paper-card-date">
-          {!!paper.publishedDate
-            ? format(new Date(paper?.publishedDate), "MMM d, yyyy")
-            : "No publication date available"}
-        </p>
+        <div className="paper-card-dates">
+          <p className="paper-card-date">
+            {!!paper.publishedDate
+              ? format(new Date(paper?.publishedDate), "MMM d, yyyy")
+              : "No publication date available"}
+          </p>
+          <p className="updated-date">
+            {`Updated: ${format(new Date(paper.updatedDate), "MMM d, yyyy")}`}
+          </p>
+        </div>
       </div>
     </motion.div>
   );

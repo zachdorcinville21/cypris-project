@@ -11,9 +11,9 @@ export async function fetchPapers(
       url += `&q=${query};`;
     }
     const result = await axios.get(url);
-    console.log(result.data)
+    console.log(result.data);
 
-    const papers = result.data.results.map((result: Record<string, any>) => {
+    const papers = result.data.results.map((result: Record<string, any>): Paper => {
       const thumbnail = result.links.find(
         (link: { type: string; url: string }) => link.type === "thumbnail_l"
       )?.url;
@@ -22,11 +22,12 @@ export async function fetchPapers(
       )?.url;
       return {
         title: result.title,
-        abstract: result.abstract ?? '',
+        abstract: result.abstract ?? "",
         authors: result.authors,
         publishedDate: result.publishedDate,
         thumbnail,
         readerLink,
+        updatedDate: result.updatedDate,
       };
     });
 

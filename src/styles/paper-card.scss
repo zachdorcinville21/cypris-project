@@ -1,4 +1,4 @@
-@use './theme' as *;
+@use "./theme" as *;
 
 .paper-card {
   width: $paper_card_size;
@@ -30,11 +30,19 @@
   color: #fff;
 }
 
-.paper-card-author, .paper-card-date {
+.paper-card-author,
+.paper-card-date,
+.updated-date {
   color: $grey_100;
 }
 
 .paper-card-thumbnail-placeholder {
   width: 80px;
   height: 105px;
+}
+
+.paper-card-dates {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
