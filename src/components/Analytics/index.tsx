@@ -35,14 +35,26 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
     } else {
       return 500;
     }
-  }
+  };
+
+  const getBarSize = () => {
+    if (width <= 768) {
+      return 40;
+    } else if (width <= 1280) {
+      return 80;
+    } else {
+      return 100;
+    }
+  };
 
   if (!searchQuery) {
     return (
       <div className="analytics-container">
-        <div className="column" id='zero-state-container'>
+        <div className="column" id="zero-state-container">
           <img src={barchartIcon} alt="chart icon" id="barchart-icon" />
-          <h2>Search for some keywords and their frequencies will appear here!</h2>
+          <h2>
+            Search for some keywords and their frequencies will appear here!
+          </h2>
         </div>
       </div>
     );
@@ -50,7 +62,10 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
 
   return (
     <div className="analytics-container">
-      <div className="column" style={{ alignItems: "center" }}>
+      <div
+        className="column"
+        style={{ alignItems: "center", textAlign: "center" }}
+      >
         <h1>Keyword frequency</h1>
         <h3>
           See the frequency of your search keywords in the paper titles and
@@ -60,9 +75,14 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
       <ResponsiveContainer
         width="100%"
         minHeight={getChartHeight()}
+        style={{ maxWidth: "1400px" }}
         id="chart-container"
       >
-        <BarChart data={chartData} barSize={100}>
+        <BarChart
+          data={chartData}
+          barSize={getBarSize()}
+          margin={{ right: 50 }}
+        >
           <XAxis dataKey="name" stroke="#fff" />
           <YAxis dataKey="value" stroke="#fff" />
           <Tooltip cursor={{ fill: "transparent" }} />
