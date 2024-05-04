@@ -11,6 +11,7 @@ export async function fetchPapers(
       url += `&q=${query};`;
     }
     const result = await axios.get(url);
+    console.log(result.data)
 
     const papers = result.data.results.map((result: Record<string, any>) => {
       const thumbnail = result.links.find(

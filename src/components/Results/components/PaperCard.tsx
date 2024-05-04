@@ -1,6 +1,7 @@
 import { Paper } from "../../../types";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
+import thumbnailPlaceholder from "../../../assets/reading.jpg";
 
 import "../../../styles/paper-card.scss";
 
@@ -21,24 +22,34 @@ export function PaperCard({ paper }: PaperCardProps) {
     >
       <div className="paper-card-body">
         <div className="column" style={{ alignItems: "start", gap: "0.5rem" }}>
-          <img
-            className="paper-card-thumbnail"
-            src={paper.thumbnail}
-            alt="Paper thumbnail"
-          />
+          {paper.thumbnail ? (
+            <img
+              className="paper-card-thumbnail"
+              src={paper.thumbnail}
+              alt="Paper thumbnail"
+            />
+          ) : (
+            <img
+              className="paper-card-thumbnail-placeholder"
+              src={thumbnailPlaceholder}
+              alt="Paper thumbnail"
+            />
+          )}
           <div>
             <h3 className="paper-card-title">{paper.title}</h3>
             <p className="paper-card-author">
-              {`${paper.authors[0]?.name}${
-                paper.authors.length > 1 ? " and others" : ""
-              }`}
+              {!paper.authors.length
+                ? "No author available"
+                : `${paper.authors[0]?.name}${
+                    paper.authors.length > 1 ? " and others" : ""
+                  }`}
             </p>
           </div>
         </div>
         <p className="paper-card-date">
-          {paper.publishedDate
+          {!!paper.publishedDate
             ? format(new Date(paper?.publishedDate), "MMM d, yyyy")
-            : null}
+            : "No publication date available"}
         </p>
       </div>
     </motion.div>
