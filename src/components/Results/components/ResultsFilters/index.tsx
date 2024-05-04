@@ -22,6 +22,7 @@ export function ResultsFilters({
           type="number"
           min={1}
           max={100}
+          defaultValue={10}
           onChange={onLimitChange}
         />
       </div>
