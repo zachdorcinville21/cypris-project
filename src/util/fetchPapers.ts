@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Paper } from "../types";
+import type { Paper } from "../types";
 
 export async function fetchPapers(
   limit = 10,
@@ -10,9 +10,7 @@ export async function fetchPapers(
     if (query) {
       url += `&q=${query};`;
     }
-    console.log("url, ", url);
     const result = await axios.get(url);
-    console.log("result", result.data);
 
     const papers = result.data.results.map((result: Record<string, any>) => {
       const thumbnail = result.links.find(

@@ -29,7 +29,7 @@ export function PaperCard({ paper }: PaperCardProps) {
           <div>
             <h3 className="paper-card-title">{paper.title}</h3>
             <p className="paper-card-author">
-              {`${paper.authors[0].name}${
+              {`${paper.authors[0]?.name}${
                 paper.authors.length > 1 ? " and others" : ""
               }`}
             </p>
@@ -37,7 +37,7 @@ export function PaperCard({ paper }: PaperCardProps) {
         </div>
         <p className="paper-card-date">
           {paper.publishedDate
-            ? format(new Date(paper.publishedDate), "MMM d, yyyy")
+            ? format(new Date(paper?.publishedDate), "MMM d, yyyy")
             : null}
         </p>
       </div>

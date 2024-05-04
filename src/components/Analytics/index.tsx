@@ -11,6 +11,8 @@ import {
 
 import "../../styles/analytics.scss";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { generateChartData } from "./util/generateChartData";
+import barchartIcon from "../../assets/bar-chart.svg";
 
 interface AnalyticsProps {
   papers: Paper[];
@@ -20,46 +22,18 @@ interface AnalyticsProps {
 export function Analytics({ papers, searchQuery }: AnalyticsProps) {
   const { width } = useWindowSize();
 
-  const chartData = useMemo(() => {
-    const data: { name: string; value: number }[] = [];
-
-    if (!!searchQuery) {
-      const keywords = searchQuery
-        .replaceAll("%20", "")
-        .replaceAll("(", "")
-        .replaceAll(")", "")
-        .replaceAll("AND", " ")
-        .replaceAll("OR", " ")
-        .split(" ");
-
-      keywords.forEach((keyword) => {
-        const keywordData: { name: string; value: number } = {
-          name: keyword,
-          value: 0,
-        };
-        papers.forEach((paper) => {
-          paper.title.split(" ").forEach((word) => {
-            if (word === keyword) {
-              keywordData.value++;
-            }
-          });
-          paper.abstract.split(" ").forEach((word) => {
-            if (word === keyword) {
-              keywordData.value++;
-            }
-          });
-        });
-        data.push(keywordData);
-      });
-    }
-
-    return data;
-  }, [papers, searchQuery]);
+  const chartData = useMemo(
+    () => generateChartData(searchQuery, papers),
+    [papers, searchQuery]
+  );
 
   if (!searchQuery) {
     return (
       <div className="analytics-container">
-        <h2>Nothing to show</h2>
+        <div className="column" id='zero-state-container'>
+          <img src={barchartIcon} alt="chart icon" id="barchart-icon" />
+          <h2>Search for some keywords and their frequencies will appear here!</h2>
+        </div>
       </div>
     );
   }
@@ -67,7 +41,7 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
   return (
     <div className="analytics-container">
       <div className="column" style={{ alignItems: "center" }}>
-        <h1>Search keyword frequency</h1>
+        <h1>Keyword frequency</h1>
         <h3>
           See the frequency of your search keywords in the paper titles and
           abstracts
