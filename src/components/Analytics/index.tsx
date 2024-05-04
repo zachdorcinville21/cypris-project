@@ -85,7 +85,14 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
         >
           <XAxis dataKey="name" stroke="#fff" />
           <YAxis dataKey="value" stroke="#fff" />
-          <Tooltip cursor={{ fill: "transparent" }} />
+          <Tooltip
+            cursor={{ fill: "transparent" }}
+            contentStyle={{
+              backgroundColor: "#fff",
+              border: "none",
+            }}
+            labelStyle={{ color: "#000" }}
+          />
           <Bar dataKey="value" fill="#0039a6" />
         </BarChart>
       </ResponsiveContainer>
