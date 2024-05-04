@@ -27,6 +27,16 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
     [papers, searchQuery]
   );
 
+  const getChartHeight = () => {
+    if (width <= 768) {
+      return 300;
+    } else if (width <= 1280) {
+      return 400;
+    } else {
+      return 500;
+    }
+  }
+
   if (!searchQuery) {
     return (
       <div className="analytics-container">
@@ -49,10 +59,10 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
       </div>
       <ResponsiveContainer
         width="100%"
-        minHeight={width < 768 ? 300 : 600}
+        minHeight={getChartHeight()}
         id="chart-container"
       >
-        <BarChart data={chartData} barSize={100} margin={{ right: 100 }}>
+        <BarChart data={chartData} barSize={100}>
           <XAxis dataKey="name" stroke="#fff" />
           <YAxis dataKey="value" stroke="#fff" />
           <Tooltip cursor={{ fill: "transparent" }} />
