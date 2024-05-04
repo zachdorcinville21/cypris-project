@@ -1,10 +1,10 @@
 @use './theme' as *;
 
-.rule-fields {
+.rule-fields, .rule-operators {
   display: none;
 }
 
-.ruleGroup-combinators, .ruleGroup-header, .ruleGroup, .rule-operators, .rule-value {
+.ruleGroup-combinators, .ruleGroup-header, .ruleGroup, .rule-value {
   background-color: transparent;
 }
 

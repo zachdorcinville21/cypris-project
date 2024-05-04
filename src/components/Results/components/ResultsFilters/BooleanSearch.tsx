@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   QueryBuilder,
   Field,
@@ -41,6 +41,10 @@ export function BooleanSearch({ setSearchQuery }: BooleanSearchProps) {
         fields={fields}
         operators={operators}
         onQueryChange={setQuery}
+        translations={{
+          addRule: { label: "+ Keyword" },
+          addGroup: { label: "+ Condition" },
+        }}
       />
     </div>
   );
