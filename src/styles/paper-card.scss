@@ -1,11 +1,14 @@
 @use "./theme" as *;
 
 .paper-card {
-  width: $paper_card_size;
+  width: $paper_card_width;
   border: 2px solid $grey_100;
   background-color: $main_100;
   border-radius: 12px;
   padding: 1rem;
+  @media (max-width: 480px) {
+    width: $paper_card_width_sm;
+  }
 }
 
 .paper-card:hover {

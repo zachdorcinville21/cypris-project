@@ -11,7 +11,7 @@
 #results-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, $paper_card_size);
+  grid-template-columns: repeat(auto-fit, $paper_card_width);
   grid-gap: 1rem;
   justify-content: center;
   justify-items: center;

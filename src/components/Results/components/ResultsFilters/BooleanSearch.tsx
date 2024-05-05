@@ -34,6 +34,7 @@ export function BooleanSearch({ setSearchQuery }: BooleanSearchProps) {
       setSearchQuery("");
     }
   }, [query]);
+  
   return (
     <div className="input-label-group">
       <label>Keyword search</label>

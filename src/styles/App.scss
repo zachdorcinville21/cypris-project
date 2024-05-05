@@ -10,6 +10,9 @@
   padding: 2rem;
   background-color: $main_100;
   width: 100%;
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+  }
 }
 
 .spinner {
