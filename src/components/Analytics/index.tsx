@@ -39,7 +39,7 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
 
   const getBarSize = () => {
     if (width <= 480) {
-      return 30;
+      return 24;
     } else if (width <= 768) {
       return 40;
     } else if (width <= 1280) {
