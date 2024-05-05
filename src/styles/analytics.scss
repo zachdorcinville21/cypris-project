@@ -4,6 +4,10 @@
   flex-direction: column;
   align-items: center;
   gap: 10rem;
+
+  @media (max-width: 992px) {
+    gap: 6rem;
+  }
 }
 
 #barchart-icon {
@@ -14,4 +18,13 @@
 #zero-state-container {
   width: 100%;
   align-items: center;
+}
+
+@media (max-width: 480px) {
+  #analytics-heading {
+    font-size: 1.8rem;
+  }
+  #analytics-subheading {
+    font-size: 1rem;
+  }
 }

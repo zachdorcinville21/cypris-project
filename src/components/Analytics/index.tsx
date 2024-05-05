@@ -38,7 +38,9 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
   };
 
   const getBarSize = () => {
-    if (width <= 768) {
+    if (width <= 480) {
+      return 30;
+    } else if (width <= 768) {
       return 40;
     } else if (width <= 1280) {
       return 80;
@@ -66,8 +68,8 @@ export function Analytics({ papers, searchQuery }: AnalyticsProps) {
         className="column"
         style={{ alignItems: "center", textAlign: "center" }}
       >
-        <h1>Keyword frequency</h1>
-        <h3>
+        <h1 id="analytics-heading">Keyword frequency</h1>
+        <h3 id="analytics-subheading">
           See the frequency of your search keywords in the paper titles and
           abstracts
         </h3>
